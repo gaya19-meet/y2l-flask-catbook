@@ -1,8 +1,7 @@
 from flask import Flask
 from flask import render_template
-from database import get_all_cats
-from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine
+from database import *
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'YOUR-VERY-SECRET-SHHH'
@@ -16,8 +15,7 @@ def catbook_home():
 @app.route('/cats/<int:id>')
 def cat_html(id):
 	
-	cat = session.query(
-     	 Cat).filter_by(id=id).first()
+	cat = session.query(Cat).filter_by(id=id).first()
 
 	cats = get_all_cats()
 	return render_template("cat.html", cat=cat)
