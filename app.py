@@ -26,6 +26,7 @@ def add_cat():
 		catname1 = request.form["cat_name"]
 		create_cat(catname1) 
 		return redirect('/')
+@app.route('')===== i dont know how to do part 3
 
 
 
